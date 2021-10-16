@@ -7,35 +7,21 @@ public class starsPyramid {
     //duplicate counter
     static int duplI;
 
-    //* from min to max
-    public static void min_max (int count) {
+    //symbol from min to max
+    public static void min_max (char c, int count) {
         for (int k = 1; k <= count; k++) {
 
-            System.out.print("*");
+            System.out.print(c);
 
         }
     }
 
-    //space from max to min
-    public static void max_min_space() {
-        for (int h = 0; h < duplI; h ++) {
-            System.out.print(" ");
-        }
-    }
-
-    //* from max to min
-    public static void max_min() {
+    //symbol from max to min
+    public static void max_min(char c) {
         for (int k = duplI; k >= 1; k--) {
 
-            System.out.print("*");
+            System.out.print(c);
 
-        }
-    }
-
-    //space from min to max
-    public static void min_max_space(int count) {
-        for (int h = count; h > 0; h --) {
-            System.out.print(" ");
         }
     }
 
@@ -44,26 +30,27 @@ public class starsPyramid {
         Scanner inputStr = new Scanner(System.in);
 
         int i = inputStr.nextInt();
+        char ch = inputStr.next().charAt(0);
         duplI = i;
 
         //count of line
         for (int j = 1; j <= i; j++) {
 
             //first pyramid
-            min_max(j);
-            max_min_space();
+            min_max(ch, j);
+            max_min(' ');
 
             //second pyramid
-            max_min();
-            min_max_space(j);
+            max_min(ch);
+            min_max(' ',j);
 
             //third pyramid
-            min_max_space(j);
-            max_min();
+            min_max(' ',j);
+            max_min(ch);
 
             //fourth pyramid
-            max_min_space();
-            min_max(j);
+            max_min(' ');
+            min_max(ch,j);
 
             //decrease duplicate counter
             duplI--;
